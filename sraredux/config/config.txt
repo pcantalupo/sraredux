@@ -1,0 +1,7 @@
+hisat -N 1 -p 16 -x $BOWTIE2_INDEXES/chr16.hg38.fa.hisat | samtools view -b - 
+# option -o SRARAW will be added and also 'bam' at the end 
+bam-load -L info
+# will run as sra-sort SRARAW SRASORTED
+sra-sort
+# will run as kar -c SRAUN -d SRASORTED
+kar
