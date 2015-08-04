@@ -48,7 +48,12 @@ sub build {
                  t time quiet met-stderr no-head no-sq omit-sec-seq reorder mm qc-filter non-deterministic
                  /;
   GetOptionsFromString($self->{options}, $mm, @opts, @bools);
-  $mm->{p} ||= $self->{sraredux}->get("threads");
+  
+  my $threads = $self->{sraredux}->get("threads");
+  if ($threads) {
+    $mm->{p} = $threads;
+  }
+#  $mm->{p} ||= $self->{sraredux}->get("threads");
   delete ($mm->{threads});
   
   # build command line
