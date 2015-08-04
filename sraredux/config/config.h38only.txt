@@ -1,0 +1,1 @@
+hisat -p 16 -x $BOWTIE2_INDEXES/hisat_index/GRCh38.p4 | samtools view -bS - 
