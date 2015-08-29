@@ -49,12 +49,11 @@ sub build {
                  /;
   GetOptionsFromString($self->{options}, $mm, @opts, @bools);
   
-  my $threads = $self->{sraredux}->get("threads");
-  if ($threads) {
-    $mm->{p} = $threads;
+  my $threads = $self->{sraredux}->get("threads"); 
+  if ($threads) {   # give priority to command line 'threads' option
+    $mm->{threads} = $threads;
+    delete($mm->{p});
   }
-#  $mm->{p} ||= $self->{sraredux}->get("threads");
-  delete ($mm->{threads});
   
   # build command line
   my @tokens = ();  

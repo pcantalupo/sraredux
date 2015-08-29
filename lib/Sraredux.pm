@@ -32,7 +32,6 @@ sub new {
   copy($self->{config}, $self->{folder});
   chdir $self->{folder};
 
-  $self->{threads} = 1 if !$self->{threads};
   $self->{logfile} = $self->{sra} . ".log";
   open ($self->{logfh}, ">>", $self->{logfile}) or die "Can't open ". $self->{logfile} . ": $!\n";
 
