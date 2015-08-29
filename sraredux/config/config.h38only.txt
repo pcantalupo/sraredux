@@ -1,1 +1,1 @@
-hisat -p 16 -x $BOWTIE2_INDEXES/hisat_index/GRCh38.p4 | samtools view -bS - 
+hisat -p 16 -x GCF_000001405.30_GRCh38.p4_genomic | samtools view -bS - 
